@@ -1,0 +1,33 @@
+{
+  "buildCommand": "mkdir -p public && cp -r *.html css js images netlify public/",
+  "outputDirectory": "public",
+  "devCommand": "python -m http.server 3000",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/success",
+      "destination": "/success.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/*.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ]
+}
