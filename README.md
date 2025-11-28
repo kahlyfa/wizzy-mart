@@ -1,8 +1,8 @@
-# Wizzy Mart - Book Sales Website
+# Wizzy Marts - Book Sales Website
 
 A professional, modern one-page book sales website with integrated Stripe payment processing. Users can browse books, view details, add to cart, and complete purchases seamlessly.
 
-![Wizzy Mart](https://img.shields.io/badge/Status-Ready-success)
+![Wizzy Marts](https://img.shields.io/badge/Status-Ready-success)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 
 ## Features
@@ -197,7 +197,7 @@ Edit `js/books.js` and add more book objects to the `books` array. Make sure to:
 
 ### Customize Text
 
-- Site name: Update "Wizzy Mart" in `index.html` and `success.html`
+- Site name: Update "Wizzy Marts" in `index.html` and `success.html`
 - Contact info: Update email and phone in the footer
 - Social links: Update URLs in the footer
 
@@ -253,7 +253,7 @@ Edit `js/books.js` and add more book objects to the `books` array. Make sure to:
 ## Support
 
 For issues and questions:
-- Email: support@wizzymart.com
+- Email: support@wizzymarts.com
 - GitHub Issues: [Create an issue](https://github.com/your-repo/issues)
 
 ## License

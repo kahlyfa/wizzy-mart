@@ -1,5 +1,5 @@
 {
-  "name": "wizzy-mart-book-store",
+  "name": "wizzy-marts-book-store",
   "version": "1.0.0",
   "description": "A professional one-page book sales website with Stripe payment integration",
   "main": "index.html",
