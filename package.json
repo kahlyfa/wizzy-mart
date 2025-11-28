@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "node server.js",
     "dev:netlify": "npx netlify-cli dev",
-    "build": "mkdir -p public && cp -r index.html success.html css js images netlify public/",
     "deploy": "npx netlify-cli deploy --prod"
   },
   "keywords": [
