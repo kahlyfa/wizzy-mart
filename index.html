@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Buy and download eBooks instantly. Thousands of titles across all genres at affordable prices.">
+  <meta name="keywords" content="ebooks, digital books, book store, buy books online">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Wizzy Mart - Your Digital Library">
+  <meta property="og:description" content="Discover and download thousands of eBooks">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yoursite.com">
+
+  <title>Wizzy Mart - Your Digital Library</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/wizzy-mart-logo.png">
+  <link rel="shortcut icon" type="image/png" href="images/wizzy-mart-logo.png">
+  <link rel="apple-touch-icon" href="images/wizzy-mart-logo.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3B82F6',
+            secondary: '#10B981',
+            accent: '#F59E0B',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom Styles -->
+  <style>
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .animate-slide-in {
+      animation: slideIn 0.3s ease-out;
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Header/Navigation -->
+  <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <a href="#" class="flex items-center space-x-3">
+            <img src="images/wizzy-mart-logo.png" alt="Wizzy Mart Logo" class="h-10 w-auto">
+            <span class="text-2xl font-bold text-gray-900">Wizzy Mart</span>
+          </a>
+        </div>
+
+        <!-- Search Bar (Desktop) -->
+        <div class="hidden md:flex flex-1 max-w-2xl mx-8">
+          <div class="relative w-full">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search books by title, author, or category..."
+              class="w-full px-4 py-2 pl-10 pr-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
+            >
+            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+          </div>
+        </div>
+
+        <!-- Cart Icon -->
+        <div class="flex items-center space-x-4">
+          <button
+            onclick="cart.toggleCart()"
+            class="relative p-2 text-gray-700 hover:text-primary transition"
+            aria-label="Shopping cart"
+          >
+            <i class="fas fa-shopping-cart text-2xl"></i>
+            <span
+              id="cart-badge"
+              class="hidden absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
+            >0</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Search Bar -->
+      <div class="md:hidden pb-3">
+        <div class="relative w-full">
+          <input
+            type="text"
+            id="search-input-mobile"
+            placeholder="Search books..."
+            class="w-full px-4 py-2 pl-10 pr-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
+          >
+          <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-16">
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1 class="text-4xl md:text-6xl font-bold mb-4">
+            Discover Your Next Great Read
+          </h1>
+          <p class="text-xl md:text-2xl text-blue-100 mb-8">
+            Thousands of eBooks at your fingertips
+          </p>
+          <button
+            onclick="scrollToSection('books-section')"
+            class="bg-white text-blue-600 font-semibold px-8 py-4 rounded-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
+            Browse Books
+          </button>
+        </div>
+      </div>
+
+      <!-- Decorative Elements -->
+      <div class="absolute top-0 right-0 -mt-10 -mr-10 opacity-20">
+        <i class="fas fa-book text-9xl"></i>
+      </div>
+      <div class="absolute bottom-0 left-0 -mb-10 -ml-10 opacity-20">
+        <i class="fas fa-book-reader text-9xl"></i>
+      </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="py-8 bg-white border-b">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center space-x-3 overflow-x-auto scrollbar-hide pb-2">
+          <button
+            class="category-btn active whitespace-nowrap px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-primary text-white"
+            data-category="all"
+          >
+            All Books
+          </button>
+          <button
+            class="category-btn whitespace-nowrap px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-gray-200"
+            data-category="Fiction"
+          >
+            <i class="fas fa-magic mr-2"></i>Fiction
+          </button>
+          <button
+            class="category-btn whitespace-nowrap px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-gray-200"
+            data-category="Business"
+          >
+            <i class="fas fa-briefcase mr-2"></i>Business
+          </button>
+          <button
+            class="category-btn whitespace-nowrap px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-gray-200"
+            data-category="Self-Help"
+          >
+            <i class="fas fa-heart mr-2"></i>Self-Help
+          </button>
+          <button
+            class="category-btn whitespace-nowrap px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-gray-200"
+            data-category="Romance"
+          >
+            <i class="fas fa-heart-broken mr-2"></i>Romance
+          </button>
+          <button
+            class="category-btn whitespace-nowrap px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-gray-200"
+            data-category="Thriller"
+          >
+            <i class="fas fa-skull mr-2"></i>Thriller
+          </button>
+          <button
+            class="category-btn whitespace-nowrap px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-gray-200"
+            data-category="Sci-Fi"
+          >
+            <i class="fas fa-rocket mr-2"></i>Sci-Fi
+          </button>
+          <button
+            class="category-btn whitespace-nowrap px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-gray-200"
+            data-category="Biography"
+          >
+            <i class="fas fa-user mr-2"></i>Biography
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Book Grid Section -->
+    <section id="books-section" class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8">Featured Books</h2>
+
+        <!-- Book Grid -->
+        <div id="book-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <!-- Books will be dynamically inserted here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-purple-600 py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-white mb-4">Stay Updated</h2>
+        <p class="text-blue-100 mb-8">Subscribe to our newsletter for new releases and exclusive offers</p>
+        <form id="newsletter-form" class="max-w-md mx-auto flex gap-2">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            required
+            class="flex-1 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
+          >
+          <button
+            type="submit"
+            class="bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- About -->
+        <div>
+          <h3 class="text-white text-lg font-bold mb-4">About Wizzy Mart</h3>
+          <p class="text-sm">
+            Your premier destination for digital books. We offer thousands of eBooks across all genres,
+            delivered instantly to your device.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-white text-lg font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-white transition">Home</a></li>
+            <li><a href="#books-section" class="hover:text-white transition">Categories</a></li>
+            <li><a href="#" class="hover:text-white transition">Contact</a></li>
+            <li><a href="#" class="hover:text-white transition">FAQs</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h3 class="text-white text-lg font-bold mb-4">Contact Us</h3>
+          <ul class="space-y-2 text-sm">
+            <li><i class="fas fa-envelope mr-2"></i>support@wizzymart.com</li>
+            <li><i class="fas fa-phone mr-2"></i>+1 (555) 123-4567</li>
+          </ul>
+          <div class="flex space-x-4 mt-4">
+            <a href="#" class="text-2xl hover:text-white transition"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-2xl hover:text-white transition"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-2xl hover:text-white transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-2xl hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-gray-700 mt-8 pt-8 text-sm text-center">
+        <p>&copy; 2025 Wizzy Mart. All rights reserved.</p>
+        <div class="mt-2 space-x-4">
+          <a href="#" class="hover:text-white transition">Terms of Service</a>
+          <span>|</span>
+          <a href="#" class="hover:text-white transition">Privacy Policy</a>
+          <span>|</span>
+          <a href="#" class="hover:text-white transition">Refund Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Book Detail Modal -->
+  <div id="book-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
+    <div id="modal-content" class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 transform transition-transform duration-300 scale-95">
+      <!-- Modal content will be dynamically inserted here -->
+    </div>
+    <button
+      onclick="closeModal()"
+      class="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 transition"
+      aria-label="Close modal"
+    >
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <!-- Shopping Cart Sidebar -->
+  <div id="cart-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40" onclick="cart.toggleCart()"></div>
+
+  <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300">
+    <div class="flex flex-col h-full">
+      <!-- Cart Header -->
+      <div class="flex items-center justify-between p-6 border-b">
+        <h2 class="text-2xl font-bold text-gray-900">Your Cart</h2>
+        <button
+          onclick="cart.toggleCart()"
+          class="text-gray-500 hover:text-gray-700 transition"
+          aria-label="Close cart"
+        >
+          <i class="fas fa-times text-2xl"></i>
+        </button>
+      </div>
+
+      <!-- Cart Items -->
+      <div id="cart-items" class="flex-1 overflow-y-auto p-6">
+        <!-- Cart items will be dynamically inserted here -->
+      </div>
+
+      <!-- Cart Summary -->
+      <div class="border-t p-6 bg-gray-50">
+        <div class="space-y-2 mb-4">
+          <div class="flex justify-between text-sm">
+            <span class="text-gray-600">Subtotal:</span>
+            <span id="cart-subtotal" class="font-semibold">$0.00</span>
+          </div>
+          <div class="flex justify-between text-sm">
+            <span class="text-gray-600">Tax (10%):</span>
+            <span id="cart-tax" class="font-semibold">$0.00</span>
+          </div>
+          <div class="flex justify-between text-lg font-bold border-t pt-2">
+            <span>Total:</span>
+            <span id="cart-total" class="text-primary">$0.00</span>
+          </div>
+        </div>
+
+        <button
+          id="checkout-button"
+          class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 mb-3"
+        >
+          Checkout
+        </button>
+
+        <button
+          onclick="cart.toggleCart()"
+          class="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-3 rounded-lg transition"
+        >
+          Continue Shopping
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button
+    id="scroll-top"
+    class="hidden fixed bottom-6 right-6 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition z-40"
+    aria-label="Scroll to top"
+  >
+    <i class="fas fa-arrow-up text-xl"></i>
+  </button>
+
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="hidden fixed inset-0 bg-white bg-opacity-90 flex items-center justify-center z-50">
+    <div class="animate-spin rounded-full h-16 w-16 border-4 border-primary border-t-transparent"></div>
+  </div>
+
+  <!-- Stripe JS -->
+  <script src="https://js.stripe.com/v3/"></script>
+
+  <!-- JavaScript Files -->
+  <script type="module" src="js/books.js"></script>
+  <script type="module" src="js/cart.js"></script>
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/stripe.js"></script>
+
+  <script>
+    // Utility functions
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Scroll to top functionality
+    window.addEventListener('scroll', () => {
+      const scrollTopBtn = document.getElementById('scroll-top');
+      if (window.scrollY > 500) {
+        scrollTopBtn.classList.remove('hidden');
+      } else {
+        scrollTopBtn.classList.add('hidden');
+      }
+    });
+
+    document.getElementById('scroll-top').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Newsletter form
+    document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = e.target.querySelector('input[type="email"]').value;
+      alert(`Thank you for subscribing with ${email}!`);
+      e.target.reset();
+    });
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('book-modal');
+        if (!modal.classList.contains('hidden')) {
+          closeModal();
+        }
+      }
+    });
+
+    // Sync mobile and desktop search
+    const searchInput = document.getElementById('search-input');
+    const searchInputMobile = document.getElementById('search-input-mobile');
+
+    searchInput.addEventListener('input', (e) => {
+      searchInputMobile.value = e.target.value;
+    });
+
+    searchInputMobile.addEventListener('input', (e) => {
+      searchInput.value = e.target.value;
+    });
+  </script>
+</body>
+</html>

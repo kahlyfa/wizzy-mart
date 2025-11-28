@@ -1,0 +1,9 @@
+{
+  "name": "wizzy-mart-functions",
+  "version": "1.0.0",
+  "description": "Netlify Functions for Wizzy Mart",
+  "main": "create-checkout-session.js",
+  "dependencies": {
+    "stripe": "^14.10.0"
+  }
+}

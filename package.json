@@ -1,0 +1,28 @@
+{
+  "name": "wizzy-mart-book-store",
+  "version": "1.0.0",
+  "description": "A professional one-page book sales website with Stripe payment integration",
+  "main": "index.html",
+  "scripts": {
+    "dev": "node server.js",
+    "dev:netlify": "npx netlify-cli dev",
+    "build": "echo 'No build step required'",
+    "deploy": "npx netlify-cli deploy --prod"
+  },
+  "keywords": [
+    "ebook",
+    "bookstore",
+    "stripe",
+    "ecommerce",
+    "netlify"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "stripe": "^14.10.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.10.1"
+  }
+}

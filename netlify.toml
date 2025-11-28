@@ -1,0 +1,26 @@
+# Netlify configuration file
+
+[build]
+  # No build command needed for this static site
+  command = "echo 'No build required'"
+  # Publish directory (root of the project)
+  publish = "."
+  # Functions directory
+  functions = "netlify/functions"
+
+# Redirect rules
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Environment variables that should be set in Netlify UI:
+# - STRIPE_SECRET_KEY
+# - URL (automatically set by Netlify)
+
+# Dev server settings for local development
+[dev]
+  command = "echo 'Serving static files'"
+  port = 8888
+  publish = "."
+  functions = "netlify/functions"
