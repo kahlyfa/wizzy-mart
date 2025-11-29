@@ -2,20 +2,20 @@
 const books = [
   {
     id: 1,
-    title: "The Psychology of Money",
-    author: "Morgan Housel",
-    category: "Business",
-    price: 14.99,
-    originalPrice: 19.99,
+    title: "Easy 30 Minutes Air Fryer Cookbook",
+    author: "Tracy T. Ponce",
+    category: "Self-Help",
+    price: 22.00,
+    originalPrice: 29.99,
     rating: 4.5,
     reviews: 1234,
-    description: "Timeless lessons on wealth, greed, and happiness. Doing well with money isn't necessarily about what you know. It's about how you behave. And behavior is hard to teach, even to really smart people. This book will help you understand the strange ways people think about money and teach you how to make better sense of one of life's most important topics.",
-    coverImage: "https://images.unsplash.com/photo-1592496431122-2349e0fbc666?w=400&h=600&fit=crop",
-    pages: 256,
-    publishedDate: "2020-09-08",
+    description: "Discover the joy of quick and delicious meals with the Easy 30 Minutes Air Fryer Cookbook. This cookbook is packed with a variety of recipes that can be prepared in just 30 minutes using your air fryer. From crispy appetizers to hearty main courses and delectable desserts, this book has something for everyone. Enjoy healthier versions of your favorite fried foods with less oil and more flavor.",
+    coverImage: "/images/book-covers/easy-30-minutes-air-fryer-cookbook.jpg",
+    pages: 107,
+    publishedDate: "2025-09-08",
     format: "eBook",
     fileSize: "2.5 MB",
-    priceId: "price_1SXi6UA5bB22UqX8GG0OvkZB" // Replace with your Stripe Price ID
+    priceId: "price_1SYWqyA5bB22UqX8AwY7HSK6" // Replace with your Stripe Price ID
   }
   // {
   //   id: 2,

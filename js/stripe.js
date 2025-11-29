@@ -4,7 +4,7 @@
 // Initialize Stripe (use your publishable key)
 // For testing, you can use Stripe test mode keys
 // TODO: Replace with your actual Stripe TEST publishable key (starts with pk_test_)
-const stripe = window.Stripe ? Stripe('pk_test_51RtHBPA5bB22UqX880c7QLblxIxOVcAJtWlBTcpbtE9Zr20otNZTSdSWRcKT091I6zm5ufIJYHfg4MVZq47cZJAI00xmshFLGx') : null;
+const stripe = window.Stripe ? Stripe('pk_live_51RtHBPA5bB22UqX8WPj5RNZqkfoEoz2VAOlSbUCnASJJJirnIUr0kSJo4K9UKjcrHObXKXNpE34NqTekMtz5skFh00CqwSu6jx') : null;
 
 // Show error if Stripe is not loaded
 if (!stripe) {
